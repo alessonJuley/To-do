@@ -13,12 +13,65 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+header{
+  font-size: xx-large;
+  margin-bottom: 5px;
 }
 
+.task-textbox{
+  width: 350px;
+  height: 50px;
+  font-size: 1.5em;
+  border-radius: 5px;
+  margin: 0px 5px;
+  padding-left: 15px;
+}
+
+.task-button{
+  width: 150px;
+  height: 50px;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0px 5px;
+  background-color: hsl(32, 75%, 49%);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.list-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 30%;
+}
+
+.list-container input{
+  margin-right: 25px;
+  transform: scale(1.5);
+}
+
+.task-item{
+  margin-right: 45px;
+  font-size: 1.5em;
+}
+
+.task-action{
+  margin-right: 15px;
+  font-size: 1.5em;
+  border-radius: 5px;
+  background-color: #504c4c;
+  border: none;
+}
+
+.task-action:hover{
+  background-color: hsl(32, 75%, 49%);
+}
+
+footer{
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
