@@ -49,12 +49,36 @@ header{
   margin-left: 30%;
 }
 
-.list-container input{
+.task-textbox{
   margin-right: 25px;
-  transform: scale(1.5);
+  transform: scale(1);
+  border: none;
 }
 
-.task-item{
+.list-container ul{
+  list-style-type: none;
+  font-size: 1.5em;
+}
+
+.list-container input{
+  transform: scale(1.5);
+  margin-right: 45px;
+}
+
+.task-action{
+  margin-right: 15px;
+  margin-left: 15px;
+  font-size: 1em;
+  border-radius: 5px;
+  background-color: #504c4c;
+  border: none;
+}
+
+.task-action:hover{
+  background-color: hsl(32, 75%, 49%);
+}
+
+/* .task-item{
   margin-right: 45px;
   font-size: 1.5em;
 }
@@ -69,7 +93,7 @@ header{
 
 .task-action:hover{
   background-color: hsl(32, 75%, 49%);
-}
+} */
 
 footer{
   margin-top: 10%;
