@@ -9,18 +9,13 @@ function ToAddItems(){
                     const newTask = document.getElementById("tasksInput").value;
                     
                     if(newTask === ""){
-                              console.log("empty task");
+                              alert("Please input a task before adding in the to-do list.");
                     }
                     else{
                               setTasks(prevTasks => [...prevTasks, newTask]);
                     }
                     
                     document.getElementById("tasksInput").value = "";
-          }
-
-          // Update
-          function handleEditTask(index){
-                    console.log("Edit task");
           }
 
           // Delete
@@ -46,7 +41,7 @@ function ToAddItems(){
 
                     <div className="list-container">
                               <ul>
-                                        {tasks.map((task, index) => <li key={index}> <input type="checkbox"/> {task} <button className="task-action" onClick={() => handleRemoveTask(index)}>Remove Task</button> <button className="task-action" onClick={handleEditTask}>Edit Task</button>
+                                        {tasks.map((task, index) => <li key={index}> <input type="checkbox"/> {task} <button className="task-action" onClick={() => handleRemoveTask(index)}>Remove Task</button> 
                                                                       
                                                             </li>)}
                               </ul>
