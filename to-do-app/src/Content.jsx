@@ -37,13 +37,13 @@ function Content(){
           return(<div className="todo-container">
                     <h1>To-do List</h1>
                     <div className="todo-input">
-                              <input type="text" placeholder="Type task..." value={newTask} onChange={handleInputChange}/>
+                              <input type="text" className="task-input" placeholder="Type task..." value={newTask} onChange={handleInputChange}/>
                               <button onClick={addTask}>Add Task</button>
                     </div>
                     <ol>
                               {tasks.map((task, index) => <li key={index}>
                                         <input type="checkbox"/>
-                                        <span>{task}</span>
+                                        <span className="task-item">{task}</span>
                                         <button className="task-delete" onClick={removeTask}>Remove Task</button>
                               </li>)}
                     </ol>

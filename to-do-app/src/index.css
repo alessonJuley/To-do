@@ -35,7 +35,7 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+/* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -48,7 +48,7 @@ button {
 }
 button:hover {
   border-color: #646cff;
-}
+} */
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -66,3 +66,56 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+/* My styling */
+.todo-container ol li{
+  list-style-type: none;  
+}
+
+button{
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.task-input{
+  height: 30px;
+  font-size: 20px;
+}
+
+.todo-input button{
+  background-color: #1a1a1a;
+}
+
+.todo-input button:hover{
+  border-color: #646cff;
+}
+
+.todo-container ol li span{
+  text-decoration: none;
+}
+
+.todo-container ol li input[type=checkbox]:checked ~ span{
+  text-decoration: line-through;
+}
+
+.task-item { 
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 20px;
+}
+
+.task-delete{
+  background-color: hsl(14, 83%, 42%);
+}
+
+.task-delete:hover{
+  background-color: hsl(14, 83%, 52%);
+}
+
