@@ -34,6 +34,14 @@ function Content(){
                     setTasks(updatedTasks);
           }
 
+          // function for onClick checkbox
+          function taskDone(index){
+                    // if checkbox is checked
+                              // index should go last element
+                    // else
+                              // index should stay current element
+          }
+
           return(<div className="todo-container">
                     <h1>To-do List</h1>
                     <div className="todo-input">
@@ -42,7 +50,7 @@ function Content(){
                     </div>
                     <ol>
                               {tasks.map((task, index) => <li key={index}>
-                                        <input type="checkbox"/>
+                                        <input type="checkbox" />
                                         <span className="task-item">{task}</span>
                                         <button className="task-delete" onClick={removeTask}>Remove Task</button>
                               </li>)}
