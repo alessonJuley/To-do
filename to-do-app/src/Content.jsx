@@ -30,28 +30,41 @@ const Content = () => {
 
           // callbacks
           const handleAddTask = (event) => {
-                    // validate if task being added is empty
-                    // if(newTask.trim() !== ""){
-                    //           // add task in tasks array
-                    //           setTasks(prevTask => [...prevTask, newTask]);
+                    // prevent page reload on form submission
+                    event.preventDefault();
 
-                    //           // make textbox empty
-                    //           setNewTask("");
-                    // }
-                    // else{
-                    //           alert("Please do not add an empty task in the to-do list.");
-                    // }
+                    // take values from form input
+                    const data = new FormData(event.target);
+                    const newTaskItem = data.get("taskItem");
+                    const newTask = {
+                              id: randomID(),
+                              taskItem: newTaskItem,
+                              isChecked: false,
+                    };
+
+                    // validate if task being added is empty
+                    if(newTask.taskItem.trim() !== ""){
+                              // add to object array
+                              setTasks(prevTask => [...prevTask, newTask]);
+                    }
+                    else{
+                              alert("Please do not add an empty task in the to-do list.");
+                    }
+
+                    console.log(tasks);
           }
 
-          const handleRemoveTask = (id) => {
+          const handleRemoveTask = (idTaken) => {
                     // use filter to remove the item
-                    const updatedTasks = tasks.filter((_, i) => i !== index);
+                    const updatedTasks = tasks.filter((task) => task.id !== idTaken);
 
+                    console.log(updatedTasks);
+                    
                     // update the tasks array
                     setTasks(updatedTasks);
           }
 
-          const handleUpdateTask = (event, id) => {
+          const handleUpdateTask = (event, idTaken) => {
                     // access the array and change isChecked depending on the state
           }
 
