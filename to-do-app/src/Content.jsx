@@ -66,6 +66,17 @@ const Content = () => {
 
           const handleUpdateTask = (event, idTaken) => {
                     // access the array and change isChecked depending on the state
+                    const sortedTasks = tasks.map((task) => {
+                              if(idTaken === task.id){
+                                        task.isChecked = event.target.checked;
+                              }
+                              
+                              return task;
+                    });
+
+                    sortedTasks.sort((a, b) => a.isChecked - b.isChecked);
+
+                    setTasks(sortedTasks);
           }
 
 
