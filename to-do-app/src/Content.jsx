@@ -5,28 +5,46 @@ const Content = () => {
 
           // =====================Default Values=====================
           // NOTE: Comment out after implementing localStorage and replace useState to empty object array 
-          const todoList = [
-                    {
-                              id: randomID(),
-                              taskItem: "Cook breakfast",
-                              isChecked: false,
-                    },
-                    {
-                              id: randomID(),
-                              taskItem: "Take a shower",
-                              isChecked: true,
-                    },
-                    {
-                              id: randomID(),
-                              taskItem: "Do laundry",
-                              isChecked: false,
-                    },
-          ];
+          // const todoList = [
+          //           {
+          //                     id: randomID(),
+          //                     taskItem: "Cook breakfast",
+          //                     isChecked: false,
+          //           },
+          //           {
+          //                     id: randomID(),
+          //                     taskItem: "Take a shower",
+          //                     isChecked: true,
+          //           },
+          //           {
+          //                     id: randomID(),
+          //                     taskItem: "Do laundry",
+          //                     isChecked: false,
+          //           },
+          // ];
 
-          const [tasks, setTasks] = useState(todoList);
+          // const [tasks, setTasks] = useState(todoList);
           // =====================Default Values=====================
 
+          const [tasks, setTasks] = useState([]);
+
           // useEffect here
+          // when the component mounts, execute this 
+          useEffect(() => {
+                    const localData = localStorage.getItem('tasks');
+                    if(localData){
+                              setTasks(JSON.parse(localData));
+                    }
+          }, []);
+
+          // when tasks array value changes, execute this
+          useEffect(() => {
+                    if(tasks.length > 0){
+                              localStorage.setItem('tasks', JSON.stringify(tasks));
+                    }
+
+          }, [tasks]);
+
 
           // callbacks
           const handleAddTask = (event) => {
@@ -46,7 +64,10 @@ const Content = () => {
                     if(newTask.taskItem.trim() !== ""){
                               // add to object array
                               setTasks(prevTask => [...prevTask, newTask]);
+
+                              event.target.reset();
                     }
+                    // another validation to not accept task already in the list
                     else{
                               alert("Please do not add an empty task in the to-do list.");
                     }
