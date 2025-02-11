@@ -62,24 +62,33 @@ const Content = () => {
 
                     // validate if task being added is empty
                     if(newTask.taskItem.trim() !== ""){
-                              // add to object array
-                              setTasks(prevTask => [...prevTask, newTask]);
 
+                              // validate if task being added is a duplicate
+                              tasks.map((task) => {
+                                        if(newTaskItem === task.taskItem){
+                                                  alert("Task is already in the list.");
+                                        }
+                                        else{
+                                                  setTasks(prevTask => [...prevTask, newTask]);
+                                                  console.log("newTaskItem: ", newTaskItem);
+                                        }
+                              })
+
+                              // clear textbox after adding task in the list
                               event.target.reset();
                     }
-                    // another validation to not accept task already in the list
                     else{
                               alert("Please do not add an empty task in the to-do list.");
                     }
 
-                    console.log(tasks);
+                    console.log("tasks: ", tasks);
           }
 
           const handleRemoveTask = (idTaken) => {
                     // use filter to remove the item
                     const updatedTasks = tasks.filter((task) => task.id !== idTaken);
 
-                    console.log(updatedTasks);
+                    console.log("updatedTasks: ", updatedTasks);
                     
                     // update the tasks array
                     setTasks(updatedTasks);
